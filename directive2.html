@@ -9,8 +9,16 @@
 </head>
 <body>
   <div id="app">
-    <h1>Hello, {{ name }}</h1>
-    <img v-bind:src="feelsgood" width="500px"/>
+    <!-- v-bind -->
+    <!-- <h1>Hello, {{ name }}</h1>
+    <h2>{{ Date() }}</h2>
+    <img :src="smile ? feelsgood : feelsbad" width="500px"/> -->
+
+    <!-- v-for -->
+    <h2>오늘 할 일</h2>
+    <ul>
+      <li v-for="(todo, index) in todos">{{ index }} {{ todo.text }}</li>
+    </ul>
   </div>
 
   <script>
@@ -18,9 +26,16 @@
       el: '#app',
       data: {
         name: 'Vue',
-        feelsgood: 'https://s3.ap-northeast-2.amazonaws.com/usedbookstore-bucket/media/animals.jpg'
+        smile: true,
+        feelsgood: 'https://s3.ap-northeast-2.amazonaws.com/usedbookstore-bucket/media/animals.jpg',
+        feelsbad: 'https://s3.ap-northeast-2.amazonaws.com/usedbookstore-bucket/media/bazzi.jpg',
+        todos: [
+          { text: 'Vuew.js 튜토리얼 작성하기' },
+          { text: 'Webpack2 알아보기' },
+          { text:  '사이드 프로젝트 진행하기' }
+        ]
       }
-    })
+    });
   </script>
 </body>
 </html>
